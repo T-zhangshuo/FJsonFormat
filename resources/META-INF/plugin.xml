@@ -1,0 +1,31 @@
+<idea-plugin>
+  <id>com.zhangshuo.fjsonformat</id>
+  <name>FJsonFormat</name>
+  <version>1.0</version>
+  <vendor email="streett@qq.com" url="http://www.yourcompany.com">个人</vendor>
+
+  <description>描述</description>
+
+  <change-notes>更新信息</change-notes>
+  <version>1.0</version>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+
+  <actions>
+    <action id="MainAction" class="com.zhangshuo.MainAction" text="FJsonFormat" description="描述">
+      <add-to-group group-id="GenerateGroup" anchor="last"/>
+    </action>
+  </actions>
+</idea-plugin>
