@@ -11,7 +11,7 @@ Flutter Json数据转成Model的IDEA插件包。
 
 4、勾选 自动YMAL，则会自动在配置文件中，加入 json_annotation 和 build_run的依赖。
 
-5、JSON数据中，如果需要引入其他类的功能，可以以 ``$ClassName`` 引入，或者 ```$[]ClassName`.
+5、JSON数据中，如果需要引入其他类的功能，可以以 ``$ClassName`` 引入，或者 ``$[]ClassName``.
 
 
 #### 示例JSON数据
