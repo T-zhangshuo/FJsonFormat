@@ -151,7 +151,7 @@ public class MainDialog extends JDialog {
             } else {
                 if (type.startsWith("List<")) {
                     String valueClassName = map.get(key).toString().substring(3);
-                    attrs_g.append("\n\t\t.." + keyStr + " = (json['" + keyStr + "'] as " + type + ")" +
+                    attrs_g.append("\n\t\t.." + keyStr + " = (json['" + keyStr + "'] as List )" +
                             "?.map((e) => e == null ? null: " + valueClassName + ".fromJson(e as Map<String,dynamic>))?.toList()");
                 } else {
                     String valueClassName = map.get(key).toString().substring(1);
