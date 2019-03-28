@@ -135,7 +135,32 @@ public class MainDialog extends JDialog {
             attrs.append(";\n");
             attrs.append("  ");
 
-            attrs_g.append("\n\t\t.." + keyStr + " = json['" + keyStr + "'] as " + type);
+            switch (type) {
+                case "bool":
+                case "num":
+                case "Map<String,dynamic>":
+                case "List":
+                case "String":
+                    break;
+                default:
+            }
+            if ("bool".equals(type) ||
+                    "num".equals(type) || "Map<String,dynamic>".equals(type)
+                    || "List".equals(type) || "String".equals(type)) {
+                attrs_g.append("\n\t\t.." + keyStr + " = json['" + keyStr + "'] as " + type);
+            } else {
+                if (type.startsWith("List<")) {
+                    String valueClassName = map.get(key).toString().substring(3);
+                    attrs_g.append("\n\t\t.." + keyStr + " = (json['" + keyStr + "'] as " + type + ")" +
+                            "?.map((e) => e == null ? null: " + valueClassName + ".fromJson(e as Map<String,dynamic>))?.toList()");
+                } else {
+                    String valueClassName = map.get(key).toString().substring(1);
+                    if (valueClassName.equals(type)) {
+                        attrs_g.append("\n\t\t.." + keyStr + " = json['" + keyStr + "'] ==null ? null : " +
+                                valueClassName + ".fromJson(json['" + keyStr + "'] as Map<String,dynamic> ");
+                    }
+                }
+            }
             attrs_gd.append("'" + keyStr + "': instance." + keyStr + ",");
         }
 
