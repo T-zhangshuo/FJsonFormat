@@ -44,6 +44,11 @@ public class MainDialog extends JDialog {
             "  %p\n" +
             "  factory %s.fromJson(Map<String,dynamic> json) => _$%sFromJson(json);\n" +
             "  Map<String, dynamic> toJson() => _$%sToJson(this);\n" +
+            "  static List<%s> fromListJson(jsonList){\n"+
+            "    return jsonList.map((map) {\n"+
+            "      return %s.fromJson(map);\n"+
+            "    }).toList();\n"+
+            "  }\n"+
             "}";
 
     private static final String TEMPLATE_G = "part of '%s.dart';\n" +
